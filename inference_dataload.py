@@ -8,6 +8,8 @@ import os
 from torchvision.io import read_image
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
 import json
 
 
