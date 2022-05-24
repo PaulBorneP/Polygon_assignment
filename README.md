@@ -13,5 +13,5 @@ Once the inference pipeline is working, we ask you to provide a critical and cre
 
 # Solution
 
-I've created a solution in two parts, first a notebook with naive implemenatation of the inference pipeline alongside with some metrics and results. Then as I have limited ressources and the inference on the whole dataset is quite long, I have tried to implement another solution using dataloaders to save some computation time (this time directly in a python file).
+I've created a solution in two parts, first a notebook with naive implementation of the inference pipeline alongside with some metrics and results. Then, since I have limited ressources and the inference on the whole dataset is quite long, I have tried to implement another solution using dataloaders to save some computation time (this time directly in a python file).
 Creating a virtual env and running the command `pip3 install -r requierments.txt` should be enough to run the code, i am using python 3.10.2

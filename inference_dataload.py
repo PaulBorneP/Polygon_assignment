@@ -47,18 +47,17 @@ class CustomImageDataset(Dataset):
         return image, label
 
 transformed_dataset = CustomImageDataset(annotations_file='labels.json',img_dir='./dataset',transform=tfms)
-dataloader =  DataLoader(transformed_dataset, batch_size = 32, shuffle=False, num_workers=2)
+dataloader =  DataLoader(transformed_dataset, batch_size = 1, shuffle=False, num_workers=4)
 
 if __name__=='__main__':
     actual=[]
     predicted=[]
-    for img,label in tqdm(dataloader):
+    for img,lab in tqdm(dataloader):
         with torch.no_grad():
             outputs = model(img)
             pred_label = torch.argmax(outputs).item()
-            actual.append(label)
+            actual.append(lab.item())
             predicted.append(pred_label)
-
     results = {actual[i]: predicted[i] for i in range(len(actual))}
 
     with open('results.json', 'w') as fp:
