@@ -53,12 +53,13 @@ if __name__=='__main__':
     actual=[]
     predicted=[]
     for img,lab in tqdm(dataloader):
+        model.eval()
         with torch.no_grad():
             outputs = model(img)
             pred_label = torch.argmax(outputs).item()
             actual.append(lab.item())
             predicted.append(pred_label)
-    results = {actual[i]: predicted[i] for i in range(len(actual))}
+    results = { i : (actual[i], predicted[i]) for i in range(len(actual))}
 
     with open('results.json', 'w') as fp:
         json.dump(results, fp,  indent=4)
